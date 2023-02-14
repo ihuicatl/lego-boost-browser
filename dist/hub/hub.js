@@ -81,6 +81,11 @@ var Hub = /** @class */ (function () {
     };
     Hub.prototype.parseMessage = function (data) {
         var _this = this;
+        console.log("GOT MESSAGE", "port", this.num2port[data[3]], data[3]);
+        if (!this.num2port[data[3]]) {
+            this.log('parseSensor unknown port 0x' + data[3].toString(16));
+            return;
+        }
         switch (data[2]) {
             case 0x04: {
                 clearTimeout(this.portInfoTimeout);
@@ -117,7 +122,7 @@ var Hub = /** @class */ (function () {
                 break;
             }
             case 0x05: {
-                this.log('Malformed message');
+                this.log('Malformed message!');
                 this.log('<', data);
                 break;
             }

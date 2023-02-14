@@ -102,6 +102,9 @@ export class Hub {
     this.addListeners();
   }
 
+
+
+
   private addListeners() {
     this.bluetooth.addEventListener('characteristicvaluechanged', event => {
       // https://googlechrome.github.io/samples/web-bluetooth/read-characteristic-value-changed.html
@@ -117,6 +120,10 @@ export class Hub {
   }
 
   private parseMessage(data: any) {
+    if (!this.num2port[data[3]]) {
+      this.log('parseSensor unknown port 0x' + data[3].toString(16));
+      return;
+    }
     switch (data[2]) {
       case 0x04: {
         clearTimeout(this.portInfoTimeout);
@@ -155,7 +162,7 @@ export class Hub {
         break;
       }
       case 0x05: {
-        this.log('Malformed message');
+        this.log('Malformed message!');
         this.log('<', data);
         break;
       }
