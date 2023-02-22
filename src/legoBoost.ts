@@ -4,7 +4,7 @@ import { HubControl } from './ai/hub-control';
 import { DeviceInfo, ControlData, RawData } from './types';
 
 export default class LegoBoost {
-  private hub: HubAsync;
+  public hub: HubAsync;
   private hubControl: HubControl;
   private color: string;
   private updateTimer: any;
