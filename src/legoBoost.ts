@@ -125,6 +125,30 @@ export default class LegoBoost {
   }
 
   /**
+   * Change the color of the led
+   * @method LegoBoost#colorLed
+   * @returns {Promise}
+   */
+  async colorLed(color: string = 'purple'): Promise<void> {
+    if (!this.hub || this.hub.connected === false) return;
+    let validColors : string[] = [
+      'off', 
+      'pink', 
+      'purple', 
+      'blue', 
+      'lightblue', 
+      'cyan', 
+      'green', 
+      'yellow', 
+      'orange', 
+      'red', 
+      'white'
+    ];
+    this.color = validColors.includes(color) ? color : 'purple';
+    await this.hub.ledAsync(this.color);
+  }
+
+  /**
    * Drive forward until wall is reaced or drive backwards 100meters
    * @method LegoBoost#driveToDirection
    * @param {number} [direction=1] Direction to drive. 1 or positive is forward, 0 or negative is backwards.
