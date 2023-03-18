@@ -13,6 +13,8 @@ window.connect = boost.connect.bind(boost);
 // @ts-ignore
 window.led = boost.changeLed.bind(boost);
 // @ts-ignore
+window.colorLed = boost.colorLed.bind(boost);
+// @ts-ignore
 window.drive = boost.drive.bind(boost, 50);
 // @ts-ignore
 window.disconnect = boost.disconnect.bind(boost);
