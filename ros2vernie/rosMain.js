@@ -65,9 +65,21 @@ let onMessageFromWorker = function( event ) {
 
         case "publish":
             topicMap[event.data.topic].messages.push(event.data.message);
-            document.getElementById("outputBox").innerHTML += event.data.message + "\n";
+            let ledColor = event.data.message.substr("data: ".length);
+            // Send message to Vernie
+            colorLed(ledColor);
+            document.getElementById("ledCircle").setAttribute("fill", ledColor);
+            // document.getElementById("outputBox").innerHTML += ledColor + "\n";
             break;
 
+        case "console":
+            let rawMessage = event.data.message;
+            // Remove end chars
+            let msg = rawMessage.substr(4, rawMessage.length - 8);
+            let outputBox = document.getElementById("outputBox");
+            outputBox.innerHTML += msg + "\n";
+            outputBox.scrollTop = outputBox.scrollHeight;
+            break;
     }
 }
 
