@@ -77,8 +77,8 @@ let onMessageFromWorker = function( event ) {
             // Remove end chars
             let msg = rawMessage.substr(4, rawMessage.length - 8);
             let outputBox = document.getElementById("outputBox");
-            outputBox.innerHTML += msg + "\n";
             outputBox.scrollTop = outputBox.scrollHeight;
+            outputBox.innerHTML += msg + "\n";
             break;
     }
 }
@@ -100,11 +100,19 @@ function startPublisher() {
 function stopPublisher() {
     publisher.terminate();
     publisher = null;
-
-    document.getElementById("outputBox").innerHTML += "Terminated.\n\n";
+    let outputBox = document.getElementById("outputBox");
+    outputBox.scrollTop = outputBox.scrollHeight;
+    outputBox.innerHTML += "Terminated.\n\n";
 }
 
 function clearPublisher() {
     document.getElementById("outputBox").innerHTML = "";
 }
 
+function happyVernie() {
+    document.getElementById("vernie").setAttribute("src", "./ros2vernie/vernie_happy.svg");
+}
+
+function angryVernie() {
+    document.getElementById("vernie").setAttribute("src", "./ros2vernie/vernie_angry.svg")
+}

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Code">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains+Mono">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./ros2vernie/style.css">
 </head>
 
 <body>
@@ -20,44 +21,37 @@
     
 
     <div class="content">
-        <div class="contentBody">
 
-            <h1>Vernie</h1>
+        <h1>Vernie</h1>
 
-            <h3>Publish LED colors</h3>
+        <br>
 
-            <div>
-                <svg width = "20px" height="20px">  
-                    <circle cx="10px" cy="10px" r="10" fill="black"/>  
-                    <circle id="ledCircle" cx="10px" cy="10px" r="8" fill="white"/>
-                </svg>
-            </div>
+        <div class="buttonBox">
+            <button onclick="connect(); happyVernie();">CONNECT</button>
+            <img id="vernie" 
+                src="ros2vernie/favicon.svg"
+                alt="Vernie's head"
+                height="80px" />
 
-            <div class="buttonBox">
-                <button onclick="connect();">CONNECT</button>
-                <button onclick="startPublisher()">START</button>
-                <button onclick="stopPublisher()">STOP</button>
-                <button onclick="clearPublisher()">CLEAR</button>
-                <button onclick="disconnect();">DISCONNECT</button>
-            </div>
-
-            <textarea id="outputBox"  rows="8"></textarea>
-
-            <br>
-            <a href="#" onclick="colorLed('off');">Off</a><br>
-            <a href="#" onclick="colorLed('pink');">Pink</a><br>
-            <a href="#" onclick="colorLed('purple');">Purple</a><br>
-            <a href="#" onclick="colorLed('blue');">Blue</a><br>
-            <a href="#" onclick="colorLed('lightblue');">Light Blue</a><br>
-            <a href="#" onclick="colorLed('cyan');">Cyan</a><br>
-            <a href="#" onclick="colorLed('green');">Green</a><br>
-            <a href="#" onclick="colorLed('yellow');">Yellow</a><br>
-            <a href="#" onclick="colorLed('orange');">Orange</a><br>
-            <a href="#" onclick="colorLed('red');">Red</a><br>
-            <a href="#" onclick="colorLed('white');">White</a><br>
-
-
+            <button onclick="disconnect(); stopPublisher(); angryVernie();">DISCONNECT</button>
         </div>
+
+        <br>
+
+        <h3>Publish LED colors</h3>
+
+        <div class="buttonBox">
+            <svg width = "30px" height="30px">  
+                <circle cx="15px" cy="15px" r="15" fill="black"/>  
+                <circle id="ledCircle" cx="15px" cy="15px" r="14" fill="white"/>
+            </svg>
+            <button onclick="startPublisher()">START</button>
+            <button onclick="stopPublisher()">STOP</button>
+            <button onclick="clearPublisher()">CLEAR</button>
+        </div>
+
+        <textarea id="outputBox"  rows="12"></textarea>
+
     </div>
 
    

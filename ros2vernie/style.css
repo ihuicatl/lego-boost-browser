@@ -1,0 +1,96 @@
+:root {
+    /* CSS HEX */
+    --rich-black: #000a14ff;
+    --rich-gray: #001021ff;
+    --honeydew: #e1efe6ff;
+    --ashes: #c8d3cdff;
+    --ash-gray: #aeb7b3ff;
+    --ash-gray-trans: #aeb7b333;
+    --blue: #01B2EA;
+    --links: #01B2EA;
+    --gray: #606c71;
+
+    --nav-width: 300px;
+    --page-width: 900px;
+
+    --font-sans: "Fira Sans", sans-serif;
+    --font-mono: "JetBrains Mono",  "Fira Code", monospace;
+}
+
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--honeydew);
+    color: black;
+    display:flex; 
+    flex-direction:column; 
+    justify-content:center;
+    align-items: center;
+    min-height:100vh;
+    width: 100%;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.content {
+    width: 90%;
+    max-width: var(--page-width);
+    min-height: 100vh;
+    padding: 50px;
+}
+
+
+textarea {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    width: 100%;
+    max-width: 100%;
+    background: white;
+    border: solid 1px var(--gray);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.buttonBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px;
+}
+
+.buttonBox img {
+    margin: 0 30px;
+}
+
+button {
+    padding: 5px;
+    min-width: 100px;
+    min-height: 30px;
+    background: var(--ash-gray);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    margin: 0 20px;
+}
+
+button:hover {
+    background: var(--blue);
+    color: white;
+}
+
+.content h1 {
+    border-bottom: 2px solid var(--gray);
+}
+
+.content a {
+    text-decoration: none;
+    color: var(--links);
+}
+
+.content a:hover {
+    font-weight: bold;
+}
